@@ -1,0 +1,189 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="card p-5">
+
+<h1 class="text-center mb-3">
+
+Welcome Back, {{ user.username }} 👋
+
+</h1>
+
+<p class="text-center text-secondary">
+
+Manage your projects and tasks efficiently.
+
+</p>
+
+<hr class="mb-5">
+
+<div class="row text-center">
+
+<div class="col-md-3">
+
+<div class="card p-4">
+
+<h5 class="text-secondary">
+
+📁 Total Projects
+
+</h5>
+
+<h1>
+
+{{ total_projects }}
+
+</h1>
+
+</div>
+
+</div>
+
+
+<div class="col-md-3">
+
+<div class="card p-4">
+
+<h5 class="text-secondary">
+
+📋 Total Tasks
+
+</h5>
+
+<h1>
+
+{{ total_tasks }}
+
+</h1>
+
+</div>
+
+</div>
+
+
+<div class="col-md-3">
+
+<div class="card p-4">
+
+<h5 class="text-secondary">
+
+📝 To Do
+
+</h5>
+
+<h1>
+
+{{ todo_tasks }}
+
+</h1>
+
+</div>
+
+</div>
+
+
+<div class="col-md-3">
+
+<div class="card p-4">
+
+<h5 class="text-secondary">
+
+✅ Completed
+
+</h5>
+
+<h1>
+
+{{ completed_tasks }}
+
+</h1>
+
+</div>
+
+</div>
+
+</div>
+
+
+<hr class="mt-5 mb-5">
+
+
+<div class="row">
+
+<div class="col-md-4 mb-4">
+
+<a href="/projects/" class="btn custom-btn w-100">
+
+📁 My Projects
+
+</a>
+
+</div>
+
+
+<div class="col-md-4 mb-4">
+
+<a href="/projects/create/" class="btn custom-btn w-100">
+
+➕ Create Project
+
+</a>
+
+</div>
+
+
+<div class="col-md-4 mb-4">
+
+<a href="/tasks/" class="btn custom-btn w-100">
+
+📋 My Tasks
+
+</a>
+
+</div>
+
+
+<div class="col-md-4 mb-4">
+
+<a href="/tasks/board/" class="btn custom-btn w-100">
+
+📊 Task Board
+
+</a>
+
+</div>
+
+
+<div class="col-md-4 mb-4">
+
+<a href="/comments/add/" class="btn custom-btn w-100">
+
+💬 Comments
+
+</a>
+
+</div>
+
+
+<div class="col-md-4 mb-4">
+
+<form action="/logout/" method="POST">
+
+{% csrf_token %}
+
+<button class="btn custom-btn w-100">
+
+🚪 Logout
+
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1 class="mb-4">
+
+📋 My Tasks
+
+</h1>
+
+<a href="/tasks/add/" class="btn custom-btn mb-4">
+
+➕ Add New Task
+
+</a>
+
+<div class="row">
+
+{% for task in tasks %}
+
+<div class="col-md-6">
+
+<div class="card p-4 mb-4">
+
+<h3>
+
+{{ task.title }}
+
+</h3>
+
+<hr>
+
+<p class="text-secondary">
+
+{{ task.description }}
+
+</p>
+
+<h5>
+
+Project:
+
+{{ task.project }}
+
+</h5>
+
+<h5 class="mb-4">
+
+Status:
+
+{{ task.status }}
+
+</h5>
+
+
+<div class="d-flex gap-2">
+
+<a href="/tasks/edit/{{ task.id }}/"
+
+class="btn btn-outline-secondary">
+
+✏ Edit
+
+</a>
+
+
+<a href="/tasks/delete/{{ task.id }}/"
+
+class="btn btn-outline-danger">
+
+❌ Delete
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+{% empty %}
+
+<h4>
+
+No Tasks Available.
+
+</h4>
+
+{% endfor %}
+
+</div>
+
+<a href="/dashboard/" class="btn custom-btn">
+
+⬅ Back to Dashboard
+
+</a>
+
+{% endblock %}
